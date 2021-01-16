@@ -21,6 +21,7 @@ booksRouter.get("/", async (req, res, next) => {
     const query = q2m(req.query)
     const total = await BookModel.countDocuments(query.criteria)
 
+    //for the pagination 1.sort, 2.skip, 3.limit
     const books = await BookModel.find(query.criteria, query.options.fields)
       .skip(query.options.skip)
       .limit(query.options.limit)
