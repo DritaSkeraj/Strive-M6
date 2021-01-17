@@ -19,6 +19,7 @@ booksRouter.post("/", async (req, res, next) => {
 booksRouter.get("/", async (req, res, next) => {
   try {
     const query = q2m(req.query)
+    //total => how many pages that meet the criteria we will have
     const total = await BookModel.countDocuments(query.criteria)
 
     //for the pagination 1.sort, 2.skip, 3.limit

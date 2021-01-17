@@ -153,12 +153,13 @@ usersRouter.put("/:id/purchaseHistory/:bookId", async (req, res, next) => {
   try {
     const { purchaseHistory } = await UserModel.findOne(
       {
-        _id: mongoose.Types.ObjectId(req.params.id),
+        _id: mongoose.Types.ObjectId(req.params.id),//convert _id from String to ObjectId (rememeber how it looks like in the DB)
       },
-      {
+      {//projection
         _id: 0,
         purchaseHistory: {
-          $elemMatch: { _id: mongoose.Types.ObjectId(req.params.bookId) },
+          $elemMatch: { _id: mongoose.Types.ObjectId(req.params.bookId) },//return the purchase history for only the book with bookId
+
         },
       }
     )
