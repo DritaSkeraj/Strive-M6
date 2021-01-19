@@ -16,7 +16,7 @@ const {
 
 const server = express()
   
-const productsRouter = require("./services/Products")
+const productsRouter = require("./services/products")
 const port = process.env.PORT || 3001
 const publicFolderPath = join(__dirname, "../public")
 
