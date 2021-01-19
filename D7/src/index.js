@@ -1,5 +1,5 @@
 const express = require("express");
-
+const listEndpoints = require("express-list-endpoints")
 const server = express();
 
 const cors  = require("cors")
@@ -19,6 +19,8 @@ server.use("/api",services)
 server.use(cors())
 
 const port = process.env.PORT || 5000;
+
+console.log(listEndpoints(server)) 
 
 server.listen(port,()=>{
     console.info(' ✅  Server is running on port ' + port )
