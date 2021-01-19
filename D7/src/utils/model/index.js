@@ -1,9 +1,11 @@
 const db = require("../db")
 
 class Model {
+
     constructor(name){
         this.name=name;
     }
+
     async run(query){
         try{
             const response = await db.query(query);
@@ -22,7 +24,6 @@ class Model {
         const response = await this.run(query);
         return response;
     }
-
 
     async findByIdAndDelete(id){
         if(!id){

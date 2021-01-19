@@ -4,12 +4,10 @@ const { Pool } = require("pg");
 
 // create instance from pool class
 
-
 const pool = new Pool();
 
 module.exports = {
     // query with pool on postgres
-
     
   async query(text, params) {
     const start = Date.now();
